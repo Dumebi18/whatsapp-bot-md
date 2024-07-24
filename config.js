@@ -9,7 +9,7 @@ const DATABASE_URL =
   process.env.DATABASE_URL === undefined ? databasePath : process.env.DATABASE_URL
 module.exports = {
   VERSION: require('./package.json').version,
-  SESSION_ID: (process.env.SESSION_ID || '9_3_2062_b394_74fb').trim(),
+  SESSION_ID: (process.env.SESSION_ID || '').trim(),
   DATABASE:
     DATABASE_URL === databasePath
       ? new Sequelize({
@@ -52,7 +52,7 @@ module.exports = {
   REJECT_CALL: toBool(process.env.REJECT_CALL),
   VPS: toBool(process.env.VPS),
   AUTO_STATUS_VIEW: (process.env.AUTO_STATUS_VIEW || 'false').trim(),
-  SEND_READ: toBool(process.env.SEND_READ),
+  SEND_READ: toBool(process.env.SEND_READ || 'false').trim(),
   KOYEB: toBool(process.env.KOYEB),
   KOYEB_NAME: (process.env.KOYEB_NAME || '').trim(),
   KOYEB_API: (process.env.KOYEB_API || '').trim(),
